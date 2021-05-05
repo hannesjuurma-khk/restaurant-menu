@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Small restaurant menu project
+
+App for adding dishes to a webpage.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
