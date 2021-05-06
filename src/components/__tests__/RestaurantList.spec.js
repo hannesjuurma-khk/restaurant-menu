@@ -51,5 +51,20 @@ describe('RestaurantList', () => {
       expect(queryByText('Pizza Place')).not.toBeNull();
     });
 
+    it('does not display the error message', () => {
+      const {queryByText} = context;
+      expect(queryByText('Restaurants could not be loaded.')).toBeNull();
+    });
+  });
+
+  describe('when loading fails', () => {
+    beforeEach(() => {
+      renderWithProps({loadError: true});
+    });
+
+    it('displays the error message', () => {
+      const {queryByText} = context;
+      expect(queryByText('Restaurants could not be loaded.')).not.toBeNull();
+    });
   });
 });
