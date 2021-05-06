@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {connect} from 'react-redux';
+import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Alert from '@material-ui/lab/Alert';
@@ -35,22 +36,24 @@ export const NewRestaurantForm = ({createRestaurant}) => {
           The restaurant could not be saved. Please try again.
         </Alert>
       )}
-      {validationError && <Alert severity="error">Name is required</Alert>}
-      <TextField
-        value={name}
-        onChange={e => setName(e.target.value)}
-        placeholder="Add Restaurant"
-        fullWidth
-        variant="filled"
-      />
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        data-testid="new-restaurant-submit-button"
-      >
-        Add
-      </Button>
+      <Box display="flex">
+        {validationError && <Alert severity="error">Name is required</Alert>}
+        <TextField
+          value={name}
+          onChange={e => setName(e.target.value)}
+          placeholder="Add Restaurant"
+          fullWidth
+          variant="filled"
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          data-testid="new-restaurant-submit-button"
+        >
+          Add
+        </Button>
+      </Box>
     </form>
   );
 };
