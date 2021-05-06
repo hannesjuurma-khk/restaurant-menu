@@ -26,12 +26,12 @@ export const loadRestaurants = () => (dispatch, getState, api) => {
 };
 
 export const createRestaurant = name => (dispatch, getState, api) => {
+  const addRestaurant = record => ({
+    type: ADD_RESTAURANT,
+    record,
+  });
+
   return api.createRestaurant(name).then(record => {
     dispatch(addRestaurant(record));
   });
-
-  const addRestaurant = record => ({
-      type: ADD_RESTAURANT,
-      record,
-    });
 };
